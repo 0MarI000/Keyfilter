@@ -5,7 +5,7 @@
 
 
 
-//definuji si maximalni delku adresy
+//definuji si maximalni delku seznamu adres (1 adresa max o 100 znacich a min 42 radku adres)
 #define MAX_LEN (100 * 42) + 1
 
 //vytvorim si funkci, ktera bude ziskavat hodnoty ze seznamu adres
@@ -16,6 +16,7 @@ char c;
 int i = 0;
     while ((c = getchar()) != EOF)
         {
+            
             adr[i] = c;
             i++;
         }
@@ -35,26 +36,21 @@ int main(int argc, char **argv)
     int len;
     read_ad(&adr, &len);
     int i = 0;
-    int j = 0;
-    char curr = adr[i];
+    //char curr = adr[i];
+    
     while(i < MAX_LEN && i < len)
     {
        
-        if(curr == argv[1][j])
-        {
-            printf("%c", curr);
-        }
-        /*else
-        {
-            printf("zadana pismena se neobjevuji v adrese z listu");
-            break;
-        } 
-        */
-        //printf("%c", curr);
+        
+        
+            printf("%c", adr[i]);
+        
         i++;
-        j++;
     }
-
-    //printf("\n%c", argv[1][0]);
+    
+    
+    //printf("FOUND: %c", adr[i]);
+    //printf("%c", argv[1][0]);
+    
     return 0;
 }
