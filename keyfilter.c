@@ -36,21 +36,57 @@ int main(int argc, char **argv)
     int len;
     read_ad(&adr, &len);
     int i = 0;
+    //int l = 0;
     //char curr = adr[i];
-    
+    //int coloop = 0;
     while(i < MAX_LEN && i < len)
     {
+        if (argv[1][i] != adr[i])
+        {
+            printf("not found ");
+            break;            
+        }
+        else
+        {   
+            do
+            {
+                if (argv[1][i] != adr[i])
+                {
+                    printf("FOUND: %c", adr[i]);
+                    break;           
+                }
+                else if (argv[1][i] == adr[i])
+                {
+                    i++;
+                }
+                
+            } while (adr[i] != '\n' || adr[i] != '\0');
+        }
+       
        
         
         
-            printf("%c", adr[i]);
+        //printf("%c", adr[i]);
         
         i++;
+        if (argv[1][i] != adr[i])
+        {            
+            break;            
+        }
+        
     }
     
-    
-    //printf("FOUND: %c", adr[i]);
-    //printf("%c", argv[1][0]);
-    
+    /*
+    printf("\n");
+    int k = 0;
+    do
+    {
+        printf("%c", argv[1][k]);
+        k++;
+        
+    }
+    while (argv[1][k] != '\0');
+    */
+
     return 0;
 }
